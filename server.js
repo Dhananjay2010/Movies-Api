@@ -1,11 +1,12 @@
 let express = require("express");
-
+let path=require("path");
 let data = require("./data.json")
+const PORT=process.env.PORT || 4000;
 
 // Bas abhi create kiya hai, chalu nhi hua hai
 let server = express(); // Server ka instance ban gaya.
 
-
+server.use(express.static(path.join(__dirname + "build")));
 
 server.get("/movies", function (req, res) {
     res.json(data);
@@ -35,7 +36,7 @@ server.get("/genre", function (req, res) {
 });
 
 
-server.listen(4000);
+server.listen(PORT);
 
 /*
 server.listen(4000);
