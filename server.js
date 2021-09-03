@@ -6,7 +6,7 @@ const PORT=process.env.PORT || 4000;
 // Bas abhi create kiya hai, chalu nhi hua hai
 let server = express(); // Server ka instance ban gaya.
 
-server.use(express.static(path.join(__dirname + "build")));
+server.use(express.static(path.join(__dirname , "build")));
 
 server.get("/movies", function (req, res) {
     res.json(data);
@@ -40,7 +40,6 @@ server.listen(PORT);
 
 /*
 server.listen(4000);
-
 => Ye line server ko shuru kar deti hai ek kisi port per.
 
    4000 is a port here. Port ek destination ki tarah hai.
